@@ -158,21 +158,13 @@ namespace HashCodeOnline
             int slideCount = slides.Count;
             slides.Remove(currSlide);
 
-            int slidePass = 0;
-
-            if (slideCount >= 1000) slidePass = 1000;
-            else slidePass = slideCount;
-
             while (orderedSlides.Count < slideCount)
             {
                 maxScore = 0;
                 maxIndex = 0;
+                
 
-                int i = 0;
-
-                if (slidePass > slides.Count) slidePass = slides.Count;
-
-                while ( i < slidePass)
+                for (int i = 0; i < slides.Count; i++)
                 {
                     if(sn != i)
                     {
@@ -183,7 +175,6 @@ namespace HashCodeOnline
                             maxIndex = i;
                         }
                     }
-                    i++;
                 }
 
                 currSlide = slides[maxIndex];
